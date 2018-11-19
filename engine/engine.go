@@ -14,8 +14,9 @@ func Run(seed ...Request) {
 		requestQueue = requestQueue[1:]
 
 		log.Printf("Fetching: %v", request.Url)
-		contents, err := fetcher.Fetch(request.Url)
+		contents, err := fetcher.FetchUseHeader(request.Url)
 		if err != nil {
+			log.Println(err.Error())
 			continue
 		}
 
