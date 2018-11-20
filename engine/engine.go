@@ -28,7 +28,7 @@ func Run(seed ...Request) {
 		requestQueue = append(requestQueue, parseResult.Request...)
 
 		for _, value := range parseResult.Items {
-			log.Printf("获取到Item: %s", value)
+			log.Printf("获取到Item: %v", value)
 		}
 	}
 

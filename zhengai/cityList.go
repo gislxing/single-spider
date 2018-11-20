@@ -14,19 +14,13 @@ func ParseCityList(contents []byte) (engine.ParseResult, error) {
 		return engine.ParseResult{}, fmt.Errorf("没有匹配的项")
 	}
 
-	limit := 1
 	parseResult := engine.ParseResult{}
 	for _, v := range submatch {
-		parseResult.Items = append(parseResult.Items, v[2])
+		parseResult.Items = append(parseResult.Items, string(v[2]))
 		parseResult.Request = append(parseResult.Request, engine.Request{
 			Url:       string(v[1]),
 			ParseFunc: ParseCity,
 		})
-
-		limit--
-		if limit == 0 {
-			break
-		}
 	}
 
 	return parseResult, nil

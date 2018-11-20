@@ -2,9 +2,10 @@ package model
 
 type User struct {
 	Name      string
+	Sex       string
+	House     string
 	Age       int
 	Education string
-	Height    int
 	Marriage  string
-	Income    string
+	Height    int
 }
